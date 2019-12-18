@@ -13,6 +13,6 @@ RUN pip install --no-cache-dir -r requirements.txt
 RUN apk del .build-deps
 
 # 复制 CoolQBot
-COPY src/ .
+# COPY src/ .
 
 CMD [ "python", "./run.py" ]

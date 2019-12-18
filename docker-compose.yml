@@ -1,15 +1,5 @@
 version: "3.7"
 services:
-
-  coolqbot:
-    image: he0119/coolqbot:latest
-    container_name: coolqbot
-    restart: always
-    volumes:
-      - ./bot:/usr/src/app/bot
-    depends_on:
-      - cqhttp
-
   cqhttp:
     image: richardchien/cqhttp:4.12.3
     container_name: cqhttp
@@ -17,8 +7,7 @@ services:
     ports:
       - "9000:9000"
     environment:
-      - VNC_PASSWD=12345687
-      - COOLQ_ACCOUNT=2062765419
+      - COOLQ_ACCOUNT=1553281097
       - CQHTTP_SERVE_DATA_FILES=true
       - CQHTTP_WS_REVERSE_API_URL=ws://coolqbot:8080/ws/api/
       - CQHTTP_WS_REVERSE_EVENT_URL=ws://coolqbot:8080/ws/event/
@@ -26,3 +15,12 @@ services:
       - CQHTTP_SHOW_LOG_CONSOLE=false
     volumes:
       - ./coolq:/home/user/coolq
+
+  coolqbot:
+    build: .
+    container_name: coolqbot
+    restart: always
+    volumes:
+      - ./src:/usr/src/app
+    depends_on:
+      - cqhttp
