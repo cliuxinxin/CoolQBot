@@ -1,6 +1,7 @@
-nonebot==1.3.1
-requests==2.22.0
-apscheduler==3.6.3
-jieba==0.39
-python-dateutil==2.8.1
-msgpack==0.6.2
+nonebot
+# requests
+apscheduler
+jieba
+python-dateutil
+msgpack
+PyGithub
