@@ -12,8 +12,8 @@ services:
       - CQHTTP_WS_REVERSE_EVENT_URL=ws://coolqbot:8080/ws/event/
       - CQHTTP_USE_WS_REVERSE=true
       - CQHTTP_SHOW_LOG_CONSOLE=false
-    # volumes:
-      # - ./coolq:/home/user/coolq
+    volumes:
+      - ./coolq:/home/user/coolq
 
   coolqbot:
     build: .
